@@ -1,0 +1,9 @@
+/home/loipt/Projects/University/RMI_CaroGame/caro-common/src/main/java/com/caro/common/model/User.java
+/home/loipt/Projects/University/RMI_CaroGame/caro-common/src/main/java/com/caro/common/model/GameState.java
+/home/loipt/Projects/University/RMI_CaroGame/caro-common/src/main/java/com/caro/common/service/ClientCallback.java
+/home/loipt/Projects/University/RMI_CaroGame/caro-common/src/main/java/com/caro/common/util/GameConstants.java
+/home/loipt/Projects/University/RMI_CaroGame/caro-common/src/main/java/com/caro/common/model/GameSettings.java
+/home/loipt/Projects/University/RMI_CaroGame/caro-common/src/main/java/com/caro/common/model/ChatMessage.java
+/home/loipt/Projects/University/RMI_CaroGame/caro-common/src/main/java/com/caro/common/util/GameRules.java
+/home/loipt/Projects/University/RMI_CaroGame/caro-common/src/main/java/com/caro/common/service/GameService.java
+/home/loipt/Projects/University/RMI_CaroGame/caro-common/src/main/java/com/caro/common/model/Room.java

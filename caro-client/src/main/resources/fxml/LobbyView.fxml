@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.caro.client.controller.LobbyController">
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #eee;">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <Label fx:id="welcomeLabel" text="Welcome, User!" style="-fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Logout" onAction="#handleLogout"/>
+        </HBox>
+    </top>
+    
+    <left>
+        <VBox spacing="10">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <Label text="Available Rooms" style="-fx-font-size: 16px;"/>
+            <ListView fx:id="roomListView" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </left>
+
+    <right>
+        <VBox spacing="10" prefWidth="150" style="-fx-background-color: #e0e0e0;">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <Label text="Online Players" style="-fx-font-weight: bold;"/>
+            <ListView fx:id="onlineUserList" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </right>
+    
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <Button text="Create Room" onAction="#handleCreateRoom" style="-fx-base: #4CAF50;"/>
+        </HBox>
+    </bottom>
+</BorderPane>

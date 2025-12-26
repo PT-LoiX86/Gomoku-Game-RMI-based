@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.caro.client.controller.RoomController">
+    <!-- TOP: Header and Leave Button -->
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #ddd;">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <Label fx:id="roomNameLabel" text="Room Name" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="statusLabel" text="Waiting for players..." textFill="blue"/>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Leave Room" onAction="#handleLeaveRoom" style="-fx-background-color: #ffcccc;"/>
+        </HBox>
+    </top>
+
+    <!-- LEFT: Players and Chat -->
+    <left>
+        <VBox spacing="10" prefWidth="250">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            
+            <TitledPane text="Players" collapsible="false">
+                <VBox spacing="5">
+                    <Label fx:id="hostLabel" text="Host: ..." style="-fx-font-weight: bold;"/>
+                    <Label fx:id="guestLabel" text="Guest: Waiting..."/>
+                    <Button fx:id="addBotButton" text="Add Bot" onAction="#handleAddBot" visible="false"/>
+                </VBox>
+            </TitledPane>
+
+            <TitledPane text="Match Info" collapsible="false">
+                <VBox spacing="10">
+                    <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                    
+                    <!-- Round Counter -->
+                    <Label fx:id="roundLabel" text="Round: 1 / 5" style="-fx-font-weight: bold; -fx-text-fill: #666;"/>
+                    
+                    <Separator/>
+                    
+                    <!-- Host Score -->
+                    <HBox spacing="10">
+                        <Label text="X" style="-fx-text-fill: red; -fx-font-weight: bold;"/>
+                        <VBox>
+                            <Label fx:id="player1Label" text="Host: ..." style="-fx-font-weight: bold;"/>
+                            <Label fx:id="score1Label" text="Score: 0"/>
+                        </VBox>
+                    </HBox>
+                    
+                    <!-- Guest Score -->
+                    <HBox spacing="10">
+                        <Label text="O" style="-fx-text-fill: blue; -fx-font-weight: bold;"/>
+                        <VBox>
+                            <Label fx:id="player2Label" text="Guest: Waiting..."/>
+                            <Label fx:id="score2Label" text="Score: 0"/>
+                        </VBox>
+                        <Button fx:id="kickButton" text="Kick" style="-fx-font-size: 10px; -fx-background-color: #ffaaaa;" onAction="#handleKickGuest" visible="false"/>
+                    </HBox>
+
+                    <Separator/>
+                    <Button fx:id="addBotButton" text="Add Bot" onAction="#handleAddBot" visible="false"/>
+                </VBox>
+            </TitledPane>
+            
+            <TitledPane text="Chat" collapsible="false" VBox.vgrow="ALWAYS" maxHeight="Infinity">
+                <VBox spacing="5">
+                    <TextArea fx:id="chatArea" editable="false" wrapText="true" VBox.vgrow="ALWAYS"/>
+                    <HBox spacing="5">
+                        <TextField fx:id="chatInput" promptText="Say something..." HBox.hgrow="ALWAYS" onAction="#handleSendChat"/>
+                        <Button text="Send" onAction="#handleSendChat"/>
+                    </HBox>
+                </VBox>
+            </TitledPane>
+        </VBox>
+    </left>
+
+    <!-- CENTER: Settings -->
+        <center>
+            <StackPane>
+                <!-- View A: Waiting Room / Settings (Visible initially) -->
+                <VBox fx:id="settingsPanel" alignment="CENTER" spacing="20" style="-fx-background-color: #f0f0f0;">
+                <Label fx:id="settingsLabel" text="Game Settings" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+                    <GridPane fx:id="settingsGrid" hgap="10" vgap="10" alignment="CENTER">
+                        <Label text="Board Size:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <Spinner fx:id="boardSizeSpinner" GridPane.rowIndex="0" GridPane.columnIndex="1" min="5" max="20" initialValue="10"/>
+                        
+                        <Label text="Total Rounds:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <Spinner fx:id="roundsSpinner" GridPane.rowIndex="1" GridPane.columnIndex="1" min="1" max="10" initialValue="5"/>
+                        
+                        <Label text="Time per Turn (s):" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <TextField fx:id="timePerTurnField" text="10" editable="true" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="50"/>
+                    </GridPane>
+
+                    <Button fx:id="startGameButton" text="Start Game" onAction="#handleStartGame" style="-fx-base: #4CAF50; -fx-font-size: 14px; -fx-padding: 10 20;"/>
+                    <Label fx:id="waitingLabel" text="Waiting for host to start..." visible="false"/>
+                </VBox>
+
+                <!-- View B: Game Board (Hidden initially) -->
+                <VBox fx:id="gamePanel" alignment="CENTER" spacing="10" style="-fx-background-color: #ddd;" visible="false">
+                    <Label fx:id="turnLabel" text="Turn: X" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="timerLabel" text="10s" style="-fx-font-size: 24px; -fx-text-fill: red;"/>
+                    <GridPane fx:id="gameBoardGrid" alignment="CENTER" hgap="1" vgap="1"/>
+                </VBox>
+            </StackPane>
+        </center>
+</BorderPane>

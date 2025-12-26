@@ -1,0 +1,9 @@
+com/caro/common/model/GameSettings.class
+com/caro/common/util/GameRules.class
+com/caro/common/model/Room.class
+com/caro/common/service/GameService.class
+com/caro/common/model/User.class
+com/caro/common/service/ClientCallback.class
+com/caro/common/model/GameState.class
+com/caro/common/util/GameConstants.class
+com/caro/common/model/ChatMessage.class
