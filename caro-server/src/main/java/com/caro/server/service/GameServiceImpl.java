@@ -332,7 +332,7 @@ public class GameServiceImpl extends UnicastRemoteObject implements GameService 
             String nextPlayer = username.equals(room.getHostUsername()) ? room.getGuestUsername() : room.getHostUsername();
             state.setCurrentTurnUsername(nextPlayer);
             startTurnTimer(room);
-            //broadcastGameState(room);
+            broadcastGameState(room);
 
             if (room.isBotMode() && nextPlayer.equals("BOT")) {
                 triggerBotMove(room);

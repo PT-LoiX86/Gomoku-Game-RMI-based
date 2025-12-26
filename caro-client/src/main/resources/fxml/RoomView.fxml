@@ -98,7 +98,6 @@
 
                 <!-- View B: Game Board (Hidden initially) -->
                 <VBox fx:id="gamePanel" alignment="CENTER" spacing="10" style="-fx-background-color: #ddd;" visible="false">
-                    <Label fx:id="turnLabel" text="Turn: X" style="-fx-font-weight: bold;"/>
                     <Label fx:id="timerLabel" text="10s" style="-fx-font-size: 24px; -fx-text-fill: red;"/>
                     <GridPane fx:id="gameBoardGrid" alignment="CENTER" hgap="1" vgap="1"/>
                 </VBox>
